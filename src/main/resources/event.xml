@@ -22,4 +22,10 @@
     <bean id="blackListNotifierAnno" class="com.cnj.spring.event.BlackListNotifierAnno">
         <property name="address" value="459967"/>
     </bean>
+
+    <bean id="listUpdateNotifier" class="com.cnj.spring.event.ListUpdateNotifier"/>
+
+    <bean id="entityCreatedEventNotifier" class="com.cnj.spring.event.EntityCreatedEventNotifier"/>
+
+    <bean id="eventListerner" class="com.cnj.spring.event.EntityCreatedEventListerner"/>
 </beans>

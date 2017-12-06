@@ -10,10 +10,6 @@ repositories {
     mavenCentral()
 }
 
-tasks.withType(JavaCompile) {
-    options.encoding = "UTF-8"
-}
-
 dependencies {
     compile "org.projectlombok:lombok:1.16.16"
     compile("org.springframework:spring-context-indexer:5.0.2.RELEASE")
