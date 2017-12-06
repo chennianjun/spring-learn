@@ -23,6 +23,6 @@ public class EventTest {
     @Test
     public void testSendMessage(){
         EmailService emailService = context.getBean("emailService", EmailService.class);
-        emailService.sendEmail("john.doe@example.org","foo!");
+        emailService.sendEmail("john.doe@example.org","foo");
     }
 }
