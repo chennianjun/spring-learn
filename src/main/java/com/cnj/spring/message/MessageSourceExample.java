@@ -2,6 +2,8 @@ package com.cnj.spring.message;
 
 import org.springframework.context.MessageSource;
 
+import java.util.Locale;
+
 /**
  * @project:spring-learn
  * @package:com.cnj.spring.message
@@ -20,6 +22,19 @@ public class MessageSourceExample {
     public void execute(){
         String message = messageSource.getMessage("argument.required",
                 new Object[]{"userDao"}, "Required", null);
+        System.out.println(message);
+    }
+
+    public void internationalization (){
+        String message = messageSource.getMessage("argument.required",
+                new Object[]{"userDao"}, "Required", Locale.UK);
+        System.out.println(message);
+    }
+
+    public void customLocal (){
+        System.out.println(messageSource.getClass().getSimpleName());
+        String message = messageSource.getMessage("info",
+                null, "Info", null);
         System.out.println(message);
     }
 }

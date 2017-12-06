@@ -1,7 +1,5 @@
 package com.cnj.spring.domain;
 
-import lombok.Data;
-
 /**
  * @project:spring-learn
  * @package:com.cnj.spring.domain
@@ -9,7 +7,14 @@ import lombok.Data;
  * @author:Subtimental
  * @description:TODO
  */
-@Data
 public class TestBean {
     private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

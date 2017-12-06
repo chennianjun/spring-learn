@@ -3,11 +3,22 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
-        <property name="basename" value="exceptions"/>
-    </bean>
+    <!--<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">-->
+        <!--<property name="basename" value="exceptions"/>-->
+    <!--</bean>-->
 
     <bean id="sourceExample" class="com.cnj.spring.message.MessageSourceExample">
         <property name="messageSource" ref="messageSource"/>
     </bean>
+
+    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>exceptions</value>
+                <value>com/cnj/spring/aware/data</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="customMesageSource" class="com.cnj.spring.aware.CustomMesageSource"/>
 </beans>

@@ -15,8 +15,8 @@ tasks.withType(JavaCompile) {
 }
 
 dependencies {
-    compileOnly "org.projectlombok:lombok:1.16.16"
-    compileOnly("org.springframework:spring-context-indexer:5.0.2.RELEASE")
+    compile "org.projectlombok:lombok:1.16.16"
+    compile("org.springframework:spring-context-indexer:5.0.2.RELEASE")
     compile 'commons-lang:commons-lang:2.6'
     compile 'org.springframework:spring-context:5.0.2.RELEASE'
     compile 'org.springframework:spring-test:5.0.2.RELEASE'
