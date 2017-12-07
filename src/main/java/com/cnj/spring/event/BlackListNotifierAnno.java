@@ -1,6 +1,7 @@
 package com.cnj.spring.event;
 
 import org.springframework.context.event.EventListener;
+import org.springframework.core.annotation.Order;
 
 /**
  * @project:spring-learn
@@ -18,17 +19,25 @@ public class BlackListNotifierAnno {
     }
 
     @EventListener
+    @Order(100)
     public void processBlackListEvent(BlackListEvent event){
-        System.out.println("BlackListNotifierAnno:"+event.getAddress()+"=="+event.getTest());
+        System.out.println("1、BlackListNotifierAnno:"+event.getAddress()+"=="+event.getTest());
     }
 
     @EventListener(BlackListEvent.class)
+    @Order(101)
     public void handleContextStart(){
-        System.out.println("BlackListNotifierAnno.handleContextStart");
+        System.out.println("2、BlackListNotifierAnno.handleContextStart");
     }
 
-    @EventListener(condition = "#p0.test=='foo'")
+    @EventListener(condition = "#blEvent.test=='foo'")
+    @Order(102)
     public void processBlackListEventCondition(BlackListEvent blEvent){
-        System.out.println("BlackListNotifierAnno.processBlackListEventCondition"+blEvent);
+        System.out.println("3、BlackListNotifierAnno.processBlackListEventCondition"+blEvent);
+    }
+
+    @EventListener
+    public ListUpdateEvent handleBlackListEvent(BlackListEvent event) {
+        return new ListUpdateEvent(event);
     }
 }

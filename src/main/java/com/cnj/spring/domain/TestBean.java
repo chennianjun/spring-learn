@@ -10,6 +10,13 @@ package com.cnj.spring.domain;
 public class TestBean {
     private String name;
 
+    public TestBean(String name) {
+        this.name = name;
+    }
+
+    public TestBean() {
+    }
+
     public String getName() {
         return name;
     }

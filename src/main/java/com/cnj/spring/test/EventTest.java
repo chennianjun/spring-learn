@@ -1,6 +1,9 @@
 package com.cnj.spring.test;
 
+import com.cnj.spring.domain.TestBean;
 import com.cnj.spring.event.EmailService;
+import com.cnj.spring.event.EntityCreatedEventNotifier;
+import com.cnj.spring.domain.Person;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -24,5 +27,17 @@ public class EventTest {
     public void testSendMessage(){
         EmailService emailService = context.getBean("emailService", EmailService.class);
         emailService.sendEmail("john.doe@example.org","foo");
+    }
+
+    @Test
+    public void testGenericSendMessage(){
+        EntityCreatedEventNotifier emailService = context.getBean("entityCreatedEventNotifier", EntityCreatedEventNotifier.class);
+        emailService.sendEvent(new Person("张三",23));
+    }
+
+    @Test
+    public void testGenericTestBean(){
+        EntityCreatedEventNotifier emailService = context.getBean("entityCreatedEventNotifier", EntityCreatedEventNotifier.class);
+        emailService.sendEvent(new TestBean("里斯"));
     }
 }
