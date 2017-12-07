@@ -27,9 +27,8 @@ public class BlackListNotifierAnno {
         System.out.println("BlackListNotifierAnno.handleContextStart");
     }
 
-    @EventListener(condition = "#blEvent.test=='foo'")
+    @EventListener(condition = "#p0.test=='foo'")
     public void processBlackListEventCondition(BlackListEvent blEvent){
-        System.out.println(blEvent.getTest());
         System.out.println("BlackListNotifierAnno.processBlackListEventCondition"+blEvent);
     }
 }
